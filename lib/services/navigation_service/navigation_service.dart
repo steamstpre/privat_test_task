@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:test_task_privat/screens/info_screen/info_screen.dart';
-import 'package:test_task_privat/screens/list_screen/list_screen.dart';
+import 'package:test_task_privat/screens/list_screen/list_view/list_screen.dart';
 
 class NavigationService {
   static GoRouter get router {
