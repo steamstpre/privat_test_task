@@ -20,6 +20,8 @@ class SearchResult {
 
   factory SearchResult.fromJson(Map<String, dynamic> json) =>
       _$SearchResultFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SearchResultToJson(this);
 }
 
 @JsonSerializable()
@@ -65,4 +67,19 @@ class Result {
   });
 
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
+  Map<String, dynamic> toJson() => _$ResultToJson(this);
+
+  Map<String, dynamic> toSqfliteMap() {
+    return {
+      'backdrop_path': backdropPath,
+      'genre_ids': genreIds?.join(','),
+      'id': id,
+      'original_language': originalLanguage,
+      'original_title': originalTitle,
+      'overview': overview,
+      'popularity': popularity,
+      'poster_path': posterPath,
+      'title': title,
+    };
+  }
 }

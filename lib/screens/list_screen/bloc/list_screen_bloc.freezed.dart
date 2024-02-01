@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ListScreenEvent {
-  String get nameOfFilm => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String nameOfFilm) search,
+    required TResult Function() cleanSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String nameOfFilm)? search,
+    TResult? Function()? cleanSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String nameOfFilm)? search,
+    TResult Function()? cleanSearch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Search value) search,
+    required TResult Function(CleanSearch value) cleanSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Search value)? search,
+    TResult? Function(CleanSearch value)? cleanSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Search value)? search,
+    TResult Function(CleanSearch value)? cleanSearch,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ListScreenEventCopyWith<ListScreenEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +61,6 @@ abstract class $ListScreenEventCopyWith<$Res> {
   factory $ListScreenEventCopyWith(
           ListScreenEvent value, $Res Function(ListScreenEvent) then) =
       _$ListScreenEventCopyWithImpl<$Res, ListScreenEvent>;
-  @useResult
-  $Res call({String nameOfFilm});
 }
 
 /// @nodoc
@@ -73,28 +72,13 @@ class _$ListScreenEventCopyWithImpl<$Res, $Val extends ListScreenEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? nameOfFilm = null,
-  }) {
-    return _then(_value.copyWith(
-      nameOfFilm: null == nameOfFilm
-          ? _value.nameOfFilm
-          : nameOfFilm // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$SearchImplCopyWith<$Res>
-    implements $ListScreenEventCopyWith<$Res> {
+abstract class _$$SearchImplCopyWith<$Res> {
   factory _$$SearchImplCopyWith(
           _$SearchImpl value, $Res Function(_$SearchImpl) then) =
       __$$SearchImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String nameOfFilm});
 }
@@ -156,6 +140,7 @@ class _$SearchImpl implements Search {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String nameOfFilm) search,
+    required TResult Function() cleanSearch,
   }) {
     return search(nameOfFilm);
   }
@@ -164,6 +149,7 @@ class _$SearchImpl implements Search {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String nameOfFilm)? search,
+    TResult? Function()? cleanSearch,
   }) {
     return search?.call(nameOfFilm);
   }
@@ -172,6 +158,7 @@ class _$SearchImpl implements Search {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String nameOfFilm)? search,
+    TResult Function()? cleanSearch,
     required TResult orElse(),
   }) {
     if (search != null) {
@@ -184,6 +171,7 @@ class _$SearchImpl implements Search {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Search value) search,
+    required TResult Function(CleanSearch value) cleanSearch,
   }) {
     return search(this);
   }
@@ -192,6 +180,7 @@ class _$SearchImpl implements Search {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Search value)? search,
+    TResult? Function(CleanSearch value)? cleanSearch,
   }) {
     return search?.call(this);
   }
@@ -200,6 +189,7 @@ class _$SearchImpl implements Search {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Search value)? search,
+    TResult Function(CleanSearch value)? cleanSearch,
     required TResult orElse(),
   }) {
     if (search != null) {
@@ -212,12 +202,112 @@ class _$SearchImpl implements Search {
 abstract class Search implements ListScreenEvent {
   const factory Search({required final String nameOfFilm}) = _$SearchImpl;
 
-  @override
   String get nameOfFilm;
-  @override
   @JsonKey(ignore: true)
   _$$SearchImplCopyWith<_$SearchImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CleanSearchImplCopyWith<$Res> {
+  factory _$$CleanSearchImplCopyWith(
+          _$CleanSearchImpl value, $Res Function(_$CleanSearchImpl) then) =
+      __$$CleanSearchImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CleanSearchImplCopyWithImpl<$Res>
+    extends _$ListScreenEventCopyWithImpl<$Res, _$CleanSearchImpl>
+    implements _$$CleanSearchImplCopyWith<$Res> {
+  __$$CleanSearchImplCopyWithImpl(
+      _$CleanSearchImpl _value, $Res Function(_$CleanSearchImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CleanSearchImpl implements CleanSearch {
+  const _$CleanSearchImpl();
+
+  @override
+  String toString() {
+    return 'ListScreenEvent.cleanSearch()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CleanSearchImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String nameOfFilm) search,
+    required TResult Function() cleanSearch,
+  }) {
+    return cleanSearch();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String nameOfFilm)? search,
+    TResult? Function()? cleanSearch,
+  }) {
+    return cleanSearch?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String nameOfFilm)? search,
+    TResult Function()? cleanSearch,
+    required TResult orElse(),
+  }) {
+    if (cleanSearch != null) {
+      return cleanSearch();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Search value) search,
+    required TResult Function(CleanSearch value) cleanSearch,
+  }) {
+    return cleanSearch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Search value)? search,
+    TResult? Function(CleanSearch value)? cleanSearch,
+  }) {
+    return cleanSearch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Search value)? search,
+    TResult Function(CleanSearch value)? cleanSearch,
+    required TResult orElse(),
+  }) {
+    if (cleanSearch != null) {
+      return cleanSearch(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CleanSearch implements ListScreenEvent {
+  const factory CleanSearch() = _$CleanSearchImpl;
 }
 
 /// @nodoc

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "249035074484",
+    "project_id": "privattesttask",
+    "storage_bucket": "privattesttask.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249035074484:android:dc1b08819e171dbf4ee0e1",
+        "android_client_info": {
+          "package_name": "com.example.test_task_privat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr1WZds30z0NYaWzIVmC3fK_ANmx7Rb1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

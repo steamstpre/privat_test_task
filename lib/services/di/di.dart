@@ -1,3 +1,4 @@
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:get_it/get_it.dart';
 import 'package:test_task_privat/data/api/api.dart';
 import 'package:test_task_privat/data/repository/repositort.dart';
@@ -5,7 +6,8 @@ import 'package:test_task_privat/data/repository/repositort.dart';
 class DependencyInjection {
   final getIt = GetIt.instance;
 
-  void setupDi() => getIt.registerSingleton<DependencyInjection>(DependencyInjection());
+  void setupDi() =>
+      getIt.registerSingleton<DependencyInjection>(DependencyInjection());
 
   final _api = Api();
   IApi get api => _api;
