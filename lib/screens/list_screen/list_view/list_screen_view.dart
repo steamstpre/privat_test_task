@@ -39,6 +39,7 @@ class _ListScreenViewState extends State<ListScreenView> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
             flexibleSpace: Container(
               decoration: BoxDecoration(
