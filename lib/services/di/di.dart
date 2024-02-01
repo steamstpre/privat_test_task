@@ -1,4 +1,3 @@
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:get_it/get_it.dart';
 import 'package:test_task_privat/data/api/api.dart';
 import 'package:test_task_privat/data/repository/repositort.dart';

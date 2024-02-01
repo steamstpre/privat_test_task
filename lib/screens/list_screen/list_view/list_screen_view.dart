@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
-import 'package:test_task_privat/consts/consts.dart';
 import 'package:test_task_privat/data/models/search_result.dart';
 import 'package:test_task_privat/screens/info_screen/info_screen.dart';
 import 'package:test_task_privat/screens/list_screen/bloc/list_screen_bloc.dart';
 import 'package:test_task_privat/screens/list_screen/widgets/movie_section.dart';
-import 'package:test_task_privat/services/di/di.dart';
 
 class ListScreenView extends StatefulWidget {
   const ListScreenView({super.key});
