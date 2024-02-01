@@ -1,6 +1,6 @@
 import 'package:path/path.dart';
-import 'package:test_task_privat/data/models/search_result.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:test_task_privat/data/models/search_result.dart';
 
 abstract class IRepository {
   Future<void> openDb();
@@ -14,9 +14,9 @@ class Repository extends IRepository {
 
   @override
   Future<void> openDb() async {
-    final String path = join(await getDatabasesPath(), 'your_database.db');
-    _database = await openDatabase(path, version: 1,
-        onCreate: (Database db, int version) async {
+    final path = join(await getDatabasesPath(), 'your_database.db');
+    _database =
+        await openDatabase(path, version: 1, onCreate: (db, version) async {
       await db.execute('''
        CREATE TABLE IF NOT EXISTS results (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -61,7 +61,7 @@ class Repository extends IRepository {
       page: searchResult[0]['page'] as int,
       totalPages: searchResult[0]['total_pages'] as int,
       totalResults: searchResult[0]['total_results'] as int,
-      results: results.map((e) => Result.fromJson(e)).toList(),
+      results: results.map(Result.fromJson).toList(),
     );
   }
 

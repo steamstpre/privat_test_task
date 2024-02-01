@@ -49,7 +49,7 @@ class _MyExtraEncoder extends Converter<Object?, Object?> {
 
 class NavigationService {
   static GoRouter get router {
-    final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+    final navigatorKey = GlobalKey<NavigatorState>();
 
     return GoRouter(
       navigatorKey: navigatorKey,
@@ -64,11 +64,12 @@ class NavigationService {
               GoRoute(
                   path: AppConsts.pathForGoRouter,
                   builder: (context, state) =>
-                      InfoScreen(movie: state.extra as Result)),
-              GoRoute(path: 'checkinfopage' , builder: (context, state) =>
-                  InfoScreen(movie: AppConsts.deepLinkMovie))
+                      InfoScreen(movie: state.extra! as Result)),
+              GoRoute(
+                  path: 'checkinfopage',
+                  builder: (context, state) =>
+                      InfoScreen(movie: AppConsts.deepLinkMovie))
             ]),
-
       ],
     );
   }

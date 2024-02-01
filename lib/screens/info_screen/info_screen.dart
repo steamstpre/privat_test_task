@@ -3,7 +3,7 @@ import 'package:test_task_privat/data/models/search_result.dart';
 import 'package:test_task_privat/screens/list_screen/widgets/movie_section.dart';
 
 class InfoScreen extends StatelessWidget {
-  const InfoScreen({super.key, required this.movie});
+  const InfoScreen({required this.movie, super.key});
   static const path = '/list_screen/info_screen';
   final Result movie;
 

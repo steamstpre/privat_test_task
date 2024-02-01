@@ -28,7 +28,7 @@ class ListScreenBloc extends Bloc<ListScreenEvent, ListScreenState> {
       _nameOfFilm = event.nameOfFilm;
       _results.clear();
       _indexOfPage = 1;
-      getIt.get<DependencyInjection>().repository.clearCache();
+      await getIt.get<DependencyInjection>().repository.clearCache();
       emit(const Loading());
     }
 
@@ -38,7 +38,7 @@ class ListScreenBloc extends Bloc<ListScreenEvent, ListScreenState> {
         .getFilmsList(_indexOfPage, event.nameOfFilm);
 
     if (searchResult != null) {
-      getIt
+      await getIt
           .get<DependencyInjection>()
           .repository
           .cacheSearchResult(searchResult.results);

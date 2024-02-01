@@ -31,7 +31,7 @@ class Api extends IApi {
         return null;
       }
 
-      final searchResult = SearchResult.fromJson(data);
+      final searchResult = SearchResult.fromJson(data as Map<String, dynamic>);
       return searchResult;
     } catch (_) {
       return null;

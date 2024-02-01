@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
-import 'package:test_task_privat/data/models/search_result.dart';
 import 'package:test_task_privat/screens/info_screen/info_screen.dart';
 import 'package:test_task_privat/screens/list_screen/bloc/list_screen_bloc.dart';
 import 'package:test_task_privat/screens/list_screen/widgets/movie_section.dart';
@@ -17,8 +15,6 @@ class ListScreenView extends StatefulWidget {
 class _ListScreenViewState extends State<ListScreenView> {
   final _scrollController = ScrollController();
   final _textController = TextEditingController();
-  int indexOfPage = 1;
-  final getIt = GetIt.instance;
 
   @override
   void initState() {
@@ -27,11 +23,11 @@ class _ListScreenViewState extends State<ListScreenView> {
   }
 
   void loadNextPage() {
-    _scrollController.position.pixels ==
-            _scrollController.position.maxScrollExtent
-        ? BlocProvider.of<ListScreenBloc>(context)
-            .add(Search(nameOfFilm: _textController.text))
-        : null;
+    if (_scrollController.position.pixels ==
+        _scrollController.position.maxScrollExtent) {
+      BlocProvider.of<ListScreenBloc>(context)
+          .add(Search(nameOfFilm: _textController.text));
+    }
   }
 
   @override
@@ -71,12 +67,11 @@ class _ListScreenViewState extends State<ListScreenView> {
             children: [
               BlocBuilder<ListScreenBloc, ListScreenState>(
                 builder: (context, state) => state.maybeWhen(
-                  resultOfSearch: (List<Result> res) => SizedBox(
+                  resultOfSearch: (res) => SizedBox(
                     height: MediaQuery.of(context).size.height / 1.22,
                     child: ListView.builder(
                         itemCount: res.length,
                         controller: _scrollController,
-                        scrollDirection: Axis.vertical,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           if (index < res.length - 1) {

@@ -3,7 +3,7 @@ import 'package:test_task_privat/consts/api_config.dart';
 import 'package:test_task_privat/data/models/search_result.dart';
 
 class MovieSection extends StatelessWidget {
-  const MovieSection({super.key, required this.movie});
+  const MovieSection({required this.movie, super.key});
   final Result movie;
   @override
   Widget build(BuildContext context) {
