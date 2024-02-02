@@ -66,7 +66,7 @@ class NavigationService {
                   builder: (context, state) =>
                       InfoScreen(movie: state.extra! as Result)),
               GoRoute(
-                  path: 'checkinfopage',
+                  path: AppConsts.pathToDeepLinkScreen,
                   builder: (context, state) =>
                       InfoScreen(movie: AppConsts.deepLinkMovie))
             ]),

@@ -3,6 +3,7 @@ import 'package:test_task_privat/data/models/search_result.dart';
 final class AppConsts {
   AppConsts._();
   static const pathForGoRouter = 'info_screen';
+  static const pathToDeepLinkScreen = 'checkinfopage';
   static final deepLinkMovie = Result(
     posterPath: '/74xTEgt7R36Fpooo50r9T25onhq.jpg',
     adult: false,
