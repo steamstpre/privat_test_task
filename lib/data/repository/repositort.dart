@@ -46,23 +46,16 @@ class Repository extends IRepository {
 
   @override
   Future<SearchResult?> getCachedSearchResult() async {
-    await openDb();
-    final List<Map<String, dynamic>> searchResult =
-        await _database.query('search_results', orderBy: 'id DESC', limit: 1);
-    if (searchResult.isEmpty) return null;
+    if (!_database.isOpen) {
+      await openDb();
+    }
+    final results = await _database.query('results');
+    if (results.isEmpty) {
+      return null;
+    }
 
-    final List<Map<String, dynamic>> results = await _database.query(
-      'results',
-      where: 'search_result_id = ?',
-      whereArgs: [searchResult[0]['id']],
-    );
-
-    return SearchResult(
-      page: searchResult[0]['page'] as int,
-      totalPages: searchResult[0]['total_pages'] as int,
-      totalResults: searchResult[0]['total_results'] as int,
-      results: results.map(Result.fromJson).toList(),
-    );
+    final searchResult = SearchResult.fromJson(results as Map<String, dynamic>);
+    return searchResult;
   }
 
   @override
