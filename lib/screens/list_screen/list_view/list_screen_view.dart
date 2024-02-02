@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:test_task_privat/consts/consts.dart';
 import 'package:test_task_privat/screens/info_screen/info_screen.dart';
 import 'package:test_task_privat/screens/list_screen/bloc/list_screen_bloc.dart';
 import 'package:test_task_privat/screens/list_screen/widgets/movie_section.dart';
@@ -48,7 +49,7 @@ class _ListScreenViewState extends State<ListScreenView> {
               style: const TextStyle(color: Colors.white),
               cursorColor: Colors.white,
               decoration: const InputDecoration(
-                hintText: 'Search...',
+                hintText: AppConsts.hintTextForSearch,
                 hintStyle: TextStyle(color: Colors.white54),
                 border: InputBorder.none,
               ),
@@ -97,7 +98,7 @@ class _ListScreenViewState extends State<ListScreenView> {
                     child: CircularProgressIndicator(),
                   ),
                   orElse: () => const Center(
-                    child: Text('pls enter data...'),
+                    child: Text(AppConsts.textForInputData),
                   ),
                 ),
               ),

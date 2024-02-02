@@ -4,6 +4,8 @@ final class AppConsts {
   AppConsts._();
   static const pathForGoRouter = 'info_screen';
   static const pathToDeepLinkScreen = 'checkinfopage';
+  static const hintTextForSearch = 'Search...';
+  static const textForInputData = 'pls enter data...';
   static final deepLinkMovie = Result(
     posterPath: '/74xTEgt7R36Fpooo50r9T25onhq.jpg',
     adult: false,
