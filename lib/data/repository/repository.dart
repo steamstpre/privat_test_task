@@ -5,7 +5,7 @@ import 'package:test_task_privat/data/models/search_result.dart';
 abstract class IRepository {
   Future<void> openDb();
   Future<void> cacheSearchResult(List<Result> movies);
-  Future<SearchResult?> getCachedSearchResult();
+  Future<List<Result>?> getCachedSearchResult();
   Future<void> clearCache();
 }
 
@@ -45,17 +45,15 @@ class Repository extends IRepository {
   }
 
   @override
-  Future<SearchResult?> getCachedSearchResult() async {
+  Future<List<Result>?> getCachedSearchResult() async {
     if (!_database.isOpen) {
       await openDb();
     }
-    final results = await _database.query('results');
-    if (results.isEmpty) {
-      return null;
-    }
+    final result = await _database.query('results');
 
-    final searchResult = SearchResult.fromJson(results as Map<String, dynamic>);
-    return searchResult;
+    final resultsList = result.map(Result.fromJson).toList();
+
+    return resultsList;
   }
 
   @override
