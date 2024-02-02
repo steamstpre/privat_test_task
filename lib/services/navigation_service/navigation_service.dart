@@ -6,17 +6,17 @@ import 'package:test_task_privat/data/models/search_result.dart';
 import 'package:test_task_privat/screens/info_screen/info_screen.dart';
 import 'package:test_task_privat/screens/list_screen/list_view/list_screen.dart';
 
-class MyExtraCodec extends Codec<Object?, Object?> {
-  const MyExtraCodec();
+class ExtraCodec extends Codec<Object?, Object?> {
+  const ExtraCodec();
   @override
-  Converter<Object?, Object?> get decoder => const _MyExtraDecoder();
+  Converter<Object?, Object?> get decoder => const _ExtraDecoder();
 
   @override
-  Converter<Object?, Object?> get encoder => const _MyExtraEncoder();
+  Converter<Object?, Object?> get encoder => const _ExtraEncoder();
 }
 
-class _MyExtraDecoder extends Converter<Object?, Object?> {
-  const _MyExtraDecoder();
+class _ExtraDecoder extends Converter<Object?, Object?> {
+  const _ExtraDecoder();
   @override
   Object? convert(Object? input) {
     try {
@@ -32,8 +32,8 @@ class _MyExtraDecoder extends Converter<Object?, Object?> {
   }
 }
 
-class _MyExtraEncoder extends Converter<Object?, Object?> {
-  const _MyExtraEncoder();
+class _ExtraEncoder extends Converter<Object?, Object?> {
+  const _ExtraEncoder();
   @override
   Object? convert(Object? input) {
     if (input == null) {
@@ -55,7 +55,7 @@ class NavigationService {
       navigatorKey: navigatorKey,
       debugLogDiagnostics: true,
       initialLocation: ListScreen.path,
-      extraCodec: const MyExtraCodec(),
+      extraCodec: const ExtraCodec(),
       routes: <RouteBase>[
         GoRoute(
             path: ListScreen.path,

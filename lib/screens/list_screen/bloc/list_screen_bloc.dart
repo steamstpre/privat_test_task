@@ -38,6 +38,9 @@ class ListScreenBloc extends Bloc<ListScreenEvent, ListScreenState> {
         .getFilmsList(_indexOfPage, event.nameOfFilm);
 
     if (searchResult != null) {
+      if (searchResult.results.isEmpty) {
+        emit(const EmptyResult());
+      }
       await getIt
           .get<DependencyInjection>()
           .repository

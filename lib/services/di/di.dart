@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:test_task_privat/data/api/api.dart';
-import 'package:test_task_privat/data/repository/repositort.dart';
+import 'package:test_task_privat/data/repository/repository.dart';
 
 class DependencyInjection {
   final getIt = GetIt.instance;

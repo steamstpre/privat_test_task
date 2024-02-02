@@ -317,6 +317,7 @@ mixin _$ListScreenState {
     required TResult Function() initial,
     required TResult Function(List<Result> results) resultOfSearch,
     required TResult Function() loading,
+    required TResult Function() emptyResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -324,6 +325,7 @@ mixin _$ListScreenState {
     TResult? Function()? initial,
     TResult? Function(List<Result> results)? resultOfSearch,
     TResult? Function()? loading,
+    TResult? Function()? emptyResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -331,6 +333,7 @@ mixin _$ListScreenState {
     TResult Function()? initial,
     TResult Function(List<Result> results)? resultOfSearch,
     TResult Function()? loading,
+    TResult Function()? emptyResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -339,6 +342,7 @@ mixin _$ListScreenState {
     required TResult Function(_Initial value) initial,
     required TResult Function(ResultOfSearch value) resultOfSearch,
     required TResult Function(Loading value) loading,
+    required TResult Function(EmptyResult value) emptyResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -346,6 +350,7 @@ mixin _$ListScreenState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(ResultOfSearch value)? resultOfSearch,
     TResult? Function(Loading value)? loading,
+    TResult? Function(EmptyResult value)? emptyResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -353,6 +358,7 @@ mixin _$ListScreenState {
     TResult Function(_Initial value)? initial,
     TResult Function(ResultOfSearch value)? resultOfSearch,
     TResult Function(Loading value)? loading,
+    TResult Function(EmptyResult value)? emptyResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -417,6 +423,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function(List<Result> results) resultOfSearch,
     required TResult Function() loading,
+    required TResult Function() emptyResult,
   }) {
     return initial();
   }
@@ -427,6 +434,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function(List<Result> results)? resultOfSearch,
     TResult? Function()? loading,
+    TResult? Function()? emptyResult,
   }) {
     return initial?.call();
   }
@@ -437,6 +445,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function(List<Result> results)? resultOfSearch,
     TResult Function()? loading,
+    TResult Function()? emptyResult,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -451,6 +460,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(ResultOfSearch value) resultOfSearch,
     required TResult Function(Loading value) loading,
+    required TResult Function(EmptyResult value) emptyResult,
   }) {
     return initial(this);
   }
@@ -461,6 +471,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(ResultOfSearch value)? resultOfSearch,
     TResult? Function(Loading value)? loading,
+    TResult? Function(EmptyResult value)? emptyResult,
   }) {
     return initial?.call(this);
   }
@@ -471,6 +482,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(ResultOfSearch value)? resultOfSearch,
     TResult Function(Loading value)? loading,
+    TResult Function(EmptyResult value)? emptyResult,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -559,6 +571,7 @@ class _$ResultOfSearchImpl implements ResultOfSearch {
     required TResult Function() initial,
     required TResult Function(List<Result> results) resultOfSearch,
     required TResult Function() loading,
+    required TResult Function() emptyResult,
   }) {
     return resultOfSearch(results);
   }
@@ -569,6 +582,7 @@ class _$ResultOfSearchImpl implements ResultOfSearch {
     TResult? Function()? initial,
     TResult? Function(List<Result> results)? resultOfSearch,
     TResult? Function()? loading,
+    TResult? Function()? emptyResult,
   }) {
     return resultOfSearch?.call(results);
   }
@@ -579,6 +593,7 @@ class _$ResultOfSearchImpl implements ResultOfSearch {
     TResult Function()? initial,
     TResult Function(List<Result> results)? resultOfSearch,
     TResult Function()? loading,
+    TResult Function()? emptyResult,
     required TResult orElse(),
   }) {
     if (resultOfSearch != null) {
@@ -593,6 +608,7 @@ class _$ResultOfSearchImpl implements ResultOfSearch {
     required TResult Function(_Initial value) initial,
     required TResult Function(ResultOfSearch value) resultOfSearch,
     required TResult Function(Loading value) loading,
+    required TResult Function(EmptyResult value) emptyResult,
   }) {
     return resultOfSearch(this);
   }
@@ -603,6 +619,7 @@ class _$ResultOfSearchImpl implements ResultOfSearch {
     TResult? Function(_Initial value)? initial,
     TResult? Function(ResultOfSearch value)? resultOfSearch,
     TResult? Function(Loading value)? loading,
+    TResult? Function(EmptyResult value)? emptyResult,
   }) {
     return resultOfSearch?.call(this);
   }
@@ -613,6 +630,7 @@ class _$ResultOfSearchImpl implements ResultOfSearch {
     TResult Function(_Initial value)? initial,
     TResult Function(ResultOfSearch value)? resultOfSearch,
     TResult Function(Loading value)? loading,
+    TResult Function(EmptyResult value)? emptyResult,
     required TResult orElse(),
   }) {
     if (resultOfSearch != null) {
@@ -673,6 +691,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function() initial,
     required TResult Function(List<Result> results) resultOfSearch,
     required TResult Function() loading,
+    required TResult Function() emptyResult,
   }) {
     return loading();
   }
@@ -683,6 +702,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function()? initial,
     TResult? Function(List<Result> results)? resultOfSearch,
     TResult? Function()? loading,
+    TResult? Function()? emptyResult,
   }) {
     return loading?.call();
   }
@@ -693,6 +713,7 @@ class _$LoadingImpl implements Loading {
     TResult Function()? initial,
     TResult Function(List<Result> results)? resultOfSearch,
     TResult Function()? loading,
+    TResult Function()? emptyResult,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -707,6 +728,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(ResultOfSearch value) resultOfSearch,
     required TResult Function(Loading value) loading,
+    required TResult Function(EmptyResult value) emptyResult,
   }) {
     return loading(this);
   }
@@ -717,6 +739,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(ResultOfSearch value)? resultOfSearch,
     TResult? Function(Loading value)? loading,
+    TResult? Function(EmptyResult value)? emptyResult,
   }) {
     return loading?.call(this);
   }
@@ -727,6 +750,7 @@ class _$LoadingImpl implements Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(ResultOfSearch value)? resultOfSearch,
     TResult Function(Loading value)? loading,
+    TResult Function(EmptyResult value)? emptyResult,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -738,4 +762,118 @@ class _$LoadingImpl implements Loading {
 
 abstract class Loading implements ListScreenState {
   const factory Loading() = _$LoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$EmptyResultImplCopyWith<$Res> {
+  factory _$$EmptyResultImplCopyWith(
+          _$EmptyResultImpl value, $Res Function(_$EmptyResultImpl) then) =
+      __$$EmptyResultImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EmptyResultImplCopyWithImpl<$Res>
+    extends _$ListScreenStateCopyWithImpl<$Res, _$EmptyResultImpl>
+    implements _$$EmptyResultImplCopyWith<$Res> {
+  __$$EmptyResultImplCopyWithImpl(
+      _$EmptyResultImpl _value, $Res Function(_$EmptyResultImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$EmptyResultImpl implements EmptyResult {
+  const _$EmptyResultImpl();
+
+  @override
+  String toString() {
+    return 'ListScreenState.emptyResult()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmptyResultImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Result> results) resultOfSearch,
+    required TResult Function() loading,
+    required TResult Function() emptyResult,
+  }) {
+    return emptyResult();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Result> results)? resultOfSearch,
+    TResult? Function()? loading,
+    TResult? Function()? emptyResult,
+  }) {
+    return emptyResult?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Result> results)? resultOfSearch,
+    TResult Function()? loading,
+    TResult Function()? emptyResult,
+    required TResult orElse(),
+  }) {
+    if (emptyResult != null) {
+      return emptyResult();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(ResultOfSearch value) resultOfSearch,
+    required TResult Function(Loading value) loading,
+    required TResult Function(EmptyResult value) emptyResult,
+  }) {
+    return emptyResult(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(ResultOfSearch value)? resultOfSearch,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(EmptyResult value)? emptyResult,
+  }) {
+    return emptyResult?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(ResultOfSearch value)? resultOfSearch,
+    TResult Function(Loading value)? loading,
+    TResult Function(EmptyResult value)? emptyResult,
+    required TResult orElse(),
+  }) {
+    if (emptyResult != null) {
+      return emptyResult(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EmptyResult implements ListScreenState {
+  const factory EmptyResult() = _$EmptyResultImpl;
 }

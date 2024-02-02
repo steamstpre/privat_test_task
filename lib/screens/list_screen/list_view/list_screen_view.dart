@@ -97,6 +97,9 @@ class _ListScreenViewState extends State<ListScreenView> {
                   loading: () => const Center(
                     child: CircularProgressIndicator(),
                   ),
+                  emptyResult: () => const Center(
+                    child: Text(AppConsts.emptyResult),
+                  ),
                   orElse: () => const Center(
                     child: Text(AppConsts.textForInputData),
                   ),

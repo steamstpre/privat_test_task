@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:test_task_privat/consts/api_config.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:test_task_privat/consts/consts.dart';
 import 'package:test_task_privat/data/models/search_result.dart';
 
 abstract class IApi {
@@ -13,7 +14,7 @@ class Api extends IApi {
   Future<SearchResult?> getFilmsList(int page, String value) async {
     try {
       final response = await _dio.get(
-        ApiConfig.getListFilmsUrl,
+        dotenv.env[AppConsts.getListFilmsUrl]!,
         queryParameters: {
           'query': value,
           'include_adult': 'false',
@@ -22,7 +23,9 @@ class Api extends IApi {
         },
         options: Options(
           contentType: Headers.jsonContentType,
-          headers: {'Authorization': 'Bearer ${ApiConfig.berearToken}'},
+          headers: {
+            'Authorization': 'Bearer ${dotenv.env[AppConsts.berearToken]!}'
+          },
         ),
       );
 

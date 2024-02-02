@@ -6,6 +6,11 @@ final class AppConsts {
   static const pathToDeepLinkScreen = 'checkinfopage';
   static const hintTextForSearch = 'Search...';
   static const textForInputData = 'pls enter data...';
+  static const apiKey = 'Api_key';
+  static const emptyResult = 'empty result';
+  static const berearToken = 'Berear_token';
+  static const getListFilmsUrl = 'Get_list_films_url';
+  static const imageBaseUrl = 'Image_base_url';
   static final deepLinkMovie = Result(
     posterPath: '/74xTEgt7R36Fpooo50r9T25onhq.jpg',
     adult: false,
