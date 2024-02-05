@@ -72,7 +72,6 @@ class Result {
   Map<String, dynamic> toSqfliteMap() {
     return {
       'backdrop_path': backdropPath,
-      'genre_ids': genreIds?.join(','),
       'id': id,
       'original_language': originalLanguage,
       'original_title': originalTitle,

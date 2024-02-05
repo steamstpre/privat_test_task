@@ -19,7 +19,7 @@ class Repository extends IRepository {
         await openDatabase(path, version: 1, onCreate: (db, version) async {
       await db.execute('''
        CREATE TABLE IF NOT EXISTS results (
-          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          id INTEGER PRIMARY KEY,
           backdrop_path TEXT,
           movie_id INTEGER,
           original_language TEXT,
@@ -28,8 +28,7 @@ class Repository extends IRepository {
           popularity REAL,
           poster_path TEXT,
           release_date TEXT,
-          title TEXT,
-          FOREIGN KEY(search_result_id) REFERENCES search_results(id)
+          title TEXT
         );
       ''');
     });
@@ -59,7 +58,6 @@ class Repository extends IRepository {
   @override
   Future<void> clearCache() async {
     await openDb();
-    await _database.delete('search_results');
     await _database.delete('results');
   }
 }
