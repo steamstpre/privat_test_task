@@ -58,18 +58,21 @@ class NavigationService {
       extraCodec: const ExtraCodec(),
       routes: <RouteBase>[
         GoRoute(
-            path: ListScreen.path,
-            builder: (context, state) => const ListScreen(),
-            routes: [
-              GoRoute(
-                  path: AppConsts.pathForGoRouter,
-                  builder: (context, state) =>
-                      InfoScreen(movie: state.extra! as Result)),
-              GoRoute(
-                  path: AppConsts.pathToDeepLinkScreen,
-                  builder: (context, state) =>
-                      InfoScreen(movie: AppConsts.deepLinkMovie))
-            ]),
+          path: ListScreen.path,
+          builder: (context, state) => const ListScreen(),
+          routes: [
+            GoRoute(
+              path: AppConsts.pathForGoRouter,
+              builder: (context, state) =>
+                  InfoScreen(movie: state.extra! as Result),
+            ),
+            GoRoute(
+              path: AppConsts.pathToDeepLinkScreen,
+              builder: (context, state) =>
+                  InfoScreen(movie: AppConsts.deepLinkMovie),
+            ),
+          ],
+        ),
       ],
     );
   }

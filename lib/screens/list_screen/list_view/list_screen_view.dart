@@ -35,34 +35,35 @@ class _ListScreenViewState extends State<ListScreenView> {
   Widget build(BuildContext context) => Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-            flexibleSpace: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.deepPurple, Colors.purple.shade300],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.deepPurple, Colors.purple.shade300],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
             ),
-            title: TextField(
-              controller: _textController,
-              style: const TextStyle(color: Colors.white),
-              cursorColor: Colors.white,
-              decoration: const InputDecoration(
-                hintText: AppConsts.hintTextForSearch,
-                hintStyle: TextStyle(color: Colors.white54),
-                border: InputBorder.none,
-              ),
-              onChanged: (value) {
-                if (value.length > 2) {
-                  BlocProvider.of<ListScreenBloc>(context)
-                      .add(Search(nameOfFilm: value));
-                } else {
-                  BlocProvider.of<ListScreenBloc>(context)
-                      .add(const CleanSearch());
-                }
-              },
-            )),
+          ),
+          title: TextField(
+            controller: _textController,
+            style: const TextStyle(color: Colors.white),
+            cursorColor: Colors.white,
+            decoration: const InputDecoration(
+              hintText: AppConsts.hintTextForSearch,
+              hintStyle: TextStyle(color: Colors.white54),
+              border: InputBorder.none,
+            ),
+            onChanged: (value) {
+              if (value.length > 2) {
+                BlocProvider.of<ListScreenBloc>(context)
+                    .add(Search(nameOfFilm: value));
+              } else {
+                BlocProvider.of<ListScreenBloc>(context)
+                    .add(const CleanSearch());
+              }
+            },
+          ),
+        ),
         body: SafeArea(
           child: Column(
             children: [
@@ -71,28 +72,32 @@ class _ListScreenViewState extends State<ListScreenView> {
                   resultOfSearch: (res) => SizedBox(
                     height: MediaQuery.of(context).size.height / 1.22,
                     child: ListView.builder(
-                        itemCount: res.length,
-                        controller: _scrollController,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          if (index < res.length - 1) {
-                            return GestureDetector(
-                              onTap: () => context.go(InfoScreen.path,
-                                  extra: res[index]),
-                              child: ListTile(
-                                title: Column(
-                                  children: [
-                                    MovieSection(movie: res[index]),
-                                    const Divider()
-                                  ],
-                                ),
+                      itemCount: res.length,
+                      controller: _scrollController,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        if (index < res.length - 1) {
+                          return GestureDetector(
+                            onTap: () => context.go(
+                              InfoScreen.path,
+                              extra: res[index],
+                            ),
+                            child: ListTile(
+                              title: Column(
+                                children: [
+                                  MovieSection(movie: res[index]),
+                                  const Divider(),
+                                ],
                               ),
-                            );
-                          } else {
-                            return const Center(
-                                child: CircularProgressIndicator());
-                          }
-                        }),
+                            ),
+                          );
+                        } else {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                      },
+                    ),
                   ),
                   loading: () => const Center(
                     child: CircularProgressIndicator(),

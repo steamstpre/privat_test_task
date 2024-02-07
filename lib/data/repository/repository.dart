@@ -1,23 +1,25 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:test_task_privat/data/models/search_result.dart';
+import 'package:test_task_privat/data/models/search_result_to_sqflite.dart';
 
 abstract class IRepository {
   Future<void> openDb();
-  Future<void> cacheSearchResult(List<Result> movies);
-  Future<List<Result>?> getCachedSearchResult();
+  Future<void> cacheSearchResult(List<SearchResultToSqFlite> movies);
+  Future<List<SearchResultToSqFlite>?> getCachedSearchResult();
   Future<void> clearCache();
 }
 
-class Repository extends IRepository {
+final class Repository extends IRepository {
   late Database _database;
 
   @override
   Future<void> openDb() async {
     final path = join(await getDatabasesPath(), 'your_database.db');
-    _database =
-        await openDatabase(path, version: 1, onCreate: (db, version) async {
-      await db.execute('''
+    _database = await openDatabase(
+      path,
+      version: 1,
+      onCreate: (db, version) async {
+        await db.execute('''
        CREATE TABLE IF NOT EXISTS results (
           id INTEGER PRIMARY KEY,
           backdrop_path TEXT,
@@ -31,26 +33,30 @@ class Repository extends IRepository {
           title TEXT
         );
       ''');
-    });
+      },
+    );
   }
 
   @override
-  Future<void> cacheSearchResult(List<Result> movies) async {
+  Future<void> cacheSearchResult(List<SearchResultToSqFlite> movies) async {
     await openDb();
     for (final result in movies) {
-      await _database.insert('results', result.toSqfliteMap(),
-          conflictAlgorithm: ConflictAlgorithm.replace);
+      await _database.insert(
+        'results',
+        result.toSqfliteMap(),
+        conflictAlgorithm: ConflictAlgorithm.replace,
+      );
     }
   }
 
   @override
-  Future<List<Result>?> getCachedSearchResult() async {
+  Future<List<SearchResultToSqFlite>?> getCachedSearchResult() async {
     if (!_database.isOpen) {
       await openDb();
     }
     final result = await _database.query('results');
 
-    final resultsList = result.map(Result.fromJson).toList();
+    final resultsList = result.map(SearchResultToSqFlite.fromSqFlite).toList();
 
     return resultsList;
   }

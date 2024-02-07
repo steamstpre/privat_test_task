@@ -7,7 +7,7 @@ abstract class IApi {
   Future<SearchResult?> getFilmsList(int page, String value);
 }
 
-class Api extends IApi {
+final class Api extends IApi {
   final _dio = Dio();
 
   @override
@@ -19,12 +19,12 @@ class Api extends IApi {
           'query': value,
           'include_adult': 'false',
           'language': 'en-US',
-          'page': '$page'
+          'page': '$page',
         },
         options: Options(
           contentType: Headers.jsonContentType,
           headers: {
-            'Authorization': 'Bearer ${dotenv.env[AppConsts.berearToken]!}'
+            'Authorization': 'Bearer ${dotenv.env[AppConsts.berearToken]!}',
           },
         ),
       );

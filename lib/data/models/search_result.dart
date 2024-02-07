@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:test_task_privat/data/models/result_interface.dart';
 
 part 'search_result.g.dart';
 
@@ -25,24 +26,8 @@ class SearchResult {
 }
 
 @JsonSerializable()
-class Result {
+class Result extends ResultInterface {
   final bool adult;
-  @JsonKey(name: 'backdrop_path')
-  final String? backdropPath;
-  @JsonKey(name: 'genre_ids')
-  final List<int>? genreIds;
-  final int id;
-  @JsonKey(name: 'original_language')
-  final String? originalLanguage;
-  @JsonKey(name: 'original_title')
-  final String? originalTitle;
-  final String? overview;
-  final double popularity;
-  @JsonKey(name: 'poster_path')
-  final String? posterPath;
-  @JsonKey(name: 'release_date')
-  final String? releaseDate;
-  final String? title;
   final bool video;
   @JsonKey(name: 'vote_average')
   final double voteAverage;
@@ -51,34 +36,21 @@ class Result {
 
   Result({
     required this.adult,
-    required this.backdropPath,
-    required this.genreIds,
-    required this.id,
-    required this.originalLanguage,
-    required this.originalTitle,
-    required this.overview,
-    required this.popularity,
-    required this.posterPath,
-    required this.releaseDate,
-    required this.title,
     required this.video,
     required this.voteAverage,
     required this.voteCount,
+    required super.backdropPath,
+    required super.genreIds,
+    required super.id,
+    required super.originalLanguage,
+    required super.originalTitle,
+    required super.overview,
+    required super.popularity,
+    required super.posterPath,
+    required super.releaseDate,
+    required super.title,
   });
 
   factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
   Map<String, dynamic> toJson() => _$ResultToJson(this);
-
-  Map<String, dynamic> toSqfliteMap() {
-    return {
-      'backdrop_path': backdropPath,
-      'id': id,
-      'original_language': originalLanguage,
-      'original_title': originalTitle,
-      'overview': overview,
-      'popularity': popularity,
-      'poster_path': posterPath,
-      'title': title,
-    };
-  }
 }

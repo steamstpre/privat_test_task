@@ -12,7 +12,8 @@ class MovieSection extends StatelessWidget {
       children: [
         if (movie.posterPath != null) ...{
           Image.network(
-              dotenv.env[AppConsts.imageBaseUrl]! + movie.posterPath!),
+            dotenv.env[AppConsts.imageBaseUrl]! + movie.posterPath!,
+          ),
         },
         Text(movie.title ?? ''),
         const SizedBox(height: 5),

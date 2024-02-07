@@ -14,11 +14,13 @@ class InfoScreen extends StatelessWidget {
         title: Text(movie.title ?? ''),
       ),
       body: SingleChildScrollView(
-        child: Column(children: [
-          MovieSection(movie: movie),
-          const SizedBox(height: 5),
-          Text(movie.popularity.toString())
-        ]),
+        child: Column(
+          children: [
+            MovieSection(movie: movie),
+            const SizedBox(height: 5),
+            Text(movie.popularity.toString()),
+          ],
+        ),
       ),
     );
   }
