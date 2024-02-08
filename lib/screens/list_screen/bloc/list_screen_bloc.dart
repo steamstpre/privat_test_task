@@ -4,6 +4,7 @@ import 'package:test_task_privat/data/api/api.dart';
 import 'package:test_task_privat/data/models/search_result.dart';
 import 'package:test_task_privat/data/models/search_result_to_sqflite.dart';
 import 'package:test_task_privat/data/repository/repository.dart';
+import 'package:test_task_privat/services/service_of_index_of_page/service_of_index_page.dart';
 
 part 'list_screen_event.dart';
 part 'list_screen_state.dart';
@@ -13,8 +14,7 @@ class ListScreenBloc extends Bloc<ListScreenEvent, ListScreenState> {
   final IApi _api;
   final IRepository _repository;
   final List<Result> _results = [];
-  int _indexOfPage = 1;
-  String _nameOfFilm = '';
+  final ServiceOfIndexPage _serviceOfIndexPage = ServiceOfIndexPage();
 
   ListScreenBloc(IApi api, IRepository repository)
       : _api = api,
@@ -29,29 +29,25 @@ class ListScreenBloc extends Bloc<ListScreenEvent, ListScreenState> {
   }
 
   Future<void> _searchFilm(Search event, emit) async {
-    if (_nameOfFilm.isNotEmpty && _nameOfFilm == event.nameOfFilm) {
-      _indexOfPage++;
-    } else {
-      _nameOfFilm = event.nameOfFilm;
+    final index = _serviceOfIndexPage.changeIndexOfPage(event.nameOfFilm);
+
+    if (index == 1) {
       _results.clear();
-      _indexOfPage = 1;
       await _repository.clearCache();
       emit(const Loading());
     }
 
-    final searchResult =
-        await _api.getFilmsList(_indexOfPage, event.nameOfFilm);
+    final searchResult = await _api.getFilmsList(index, event.nameOfFilm);
 
-    if (searchResult != null) {
-      if (searchResult.results.isEmpty) {
-        emit(const EmptyResult());
-      }
+    if (searchResult != null && searchResult.results.isNotEmpty) {
       await _repository.cacheSearchResult(
         searchResult.results.map(SearchResultToSqFlite.fromApiModel).toList(),
       );
       _results.addAll(searchResult.results);
       final tempList = [..._results];
       emit(ResultOfSearch(results: tempList));
+    } else {
+      emit(const EmptyResult());
     }
   }
 
